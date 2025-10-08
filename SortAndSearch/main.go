@@ -17,8 +17,8 @@ func main() {
 	min, max := findMinMax(arr0)
 	fmt.Printf("Min number is %d and Max number is %d \n", min, max)
 
-	arr1 := append([]int(nil), big_arr...) // copy for bubble sort
-	arr2 := append([]int(nil), big_arr...) // copy for insertion sort
+	arr1 := append([]int(nil), big_arr...)
+	arr2 := append([]int(nil), big_arr...)
 
 	start := time.Now()
 	bbSort(arr1)
@@ -29,8 +29,8 @@ func main() {
 	insSort(arr2)
 	fmt.Printf("Time taken with insert sort: %.4f \n", time.Since(start).Seconds())
 
-	//Search number              //cho mảng nhỏ
-	target := rand.IntN(n_size) //cho mảng lớn
+	//Search number
+	target := rand.IntN(n_size)
 
 	//linear search
 	fmt.Printf("Linear search: Number %d at the index of %d \n", target, linearSearch(big_arr, target))
