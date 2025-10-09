@@ -6,12 +6,19 @@ import (
 	"time"
 )
 
+func sortWrapper(name string, arr []int, sortFunc func([]int)) {
+	start := time.Now()
+	sortFunc(arr)
+	fmt.Printf("Time taken with %s: %.4f seconds\n", name, time.Since(start).Seconds())
+}
+
 func main() {
-	n_size := 100000
-	big_arr := make([]int, n_size)
-	for i := 0; i < n_size; i++ {
-		big_arr[i] = rand.IntN(n_size)
+	arraySize := 30000
+	big_arr := make([]int, arraySize)
+	for i := 0; i < arraySize; i++ {
+		big_arr[i] = rand.IntN(arraySize)
 	}
+	// Sort array
 	//small_arr := []int{6, 1, 4, 2, 3, 9, 7, 1, 6, 8}
 	arr0 := append([]int(nil), big_arr...)
 	min, max := findMinMax(arr0)
@@ -19,22 +26,31 @@ func main() {
 
 	arr1 := append([]int(nil), big_arr...)
 	arr2 := append([]int(nil), big_arr...)
+	arr3 := append([]int(nil), big_arr...)
+	arr4 := append([]int(nil), big_arr...)
+	arr5 := append([]int(nil), big_arr...)
 
-	start := time.Now()
-	bbSort(arr1)
 	// fmt.Println(bbSort(small_arr))
-	fmt.Printf("Time taken with bubble sort: %.4f \n", time.Since(start).Seconds())
+	sortWrapper("Bubble sort", arr1, bbSort)
 
-	start = time.Now()
-	insSort(arr2)
-	fmt.Printf("Time taken with insert sort: %.4f \n", time.Since(start).Seconds())
+	sortWrapper("Insertion sort", arr2, insSort)
 
+	// fmt.Println(mergeSort(small_arr))
+	sortWrapper("Merge sort", arr3, mergeWrapper)
+
+	// quickSort(small_arr, 0, len(small_arr)-1)
+	// fmt.Println(small_arr)
+	sortWrapper("Quick sort", arr4, quickSortWrapper)
+
+	sortWrapper("Counting sort", arr5, countingSort)
+	// =================================================================================
 	//Search number
-	target := rand.IntN(n_size)
+	targetIndex := rand.IntN(arraySize)
+	target := big_arr[targetIndex]
 
 	//linear search
 	fmt.Printf("Linear search: Number %d at the index of %d \n", target, linearSearch(big_arr, target))
 
 	//binary search
-	fmt.Printf("Binary search: Number %d at the index of %d \n", target, binarySearch(big_arr, target))
+	fmt.Printf("Binary search: Number %d at the index of %d \n", target, binarySearch(arr4, target))
 }

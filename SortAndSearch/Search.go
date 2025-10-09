@@ -10,13 +10,12 @@ func linearSearch(arr []int, t int) int {
 }
 
 func binarySearch(arr []int, t int) int {
-	sorted_arr := insSort(arr)
-	l, r := 0, len(sorted_arr)-1
+	l, r := 0, len(arr)-1
 	for l <= r {
 		m := (r + l) / 2
-		if sorted_arr[m] == t {
+		if arr[m] == t {
 			return m
-		} else if sorted_arr[m] < t {
+		} else if arr[m] < t {
 			l = m + 1
 		} else {
 			r = m - 1
@@ -26,6 +25,6 @@ func binarySearch(arr []int, t int) int {
 }
 
 func findMinMax(arr []int) (int, int) {
-	sorted_arr := insSort(arr)
+	sorted_arr := mergeSort(arr)
 	return sorted_arr[0], sorted_arr[len(sorted_arr)-1]
 }
