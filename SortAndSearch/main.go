@@ -53,4 +53,40 @@ func main() {
 
 	//binary search
 	fmt.Printf("Binary search: Number %d at the index of %d \n", target, binarySearch(arr4, target))
+
+	//Interpolation search
+	fmt.Printf("Interpolation search: Number %d at the index of %d \n", target, interpolationSearch(arr4, target))
+
+	//Exponential search
+	fmt.Printf("Exponential search: Number %d at the index of %d \n", target, exponentialSearch(arr4, target))
+	// =================================================================================
+	//Stack
+	var s Stack
+	s.Push(10)
+	s.Push(20)
+	s.Push(30)
+	s.Push(40)
+	s.Push(50)
+	s.Push(60)
+	value, _ := s.Peek()
+	fmt.Println("Peek: ", value)
+	s.Pop()
+	s.Pop()
+	s.Print()
+	s.Clear()
+
+	//Queue
+	var q Queue
+	q.Enqueue(10)
+	q.Enqueue(20)
+	q.Enqueue(30)
+	q.Enqueue(40)
+	q.Enqueue(50)
+	q.Enqueue(60)
+	q.Front()
+	q.Back()
+	q.Dequeue()
+	q.Dequeue()
+	q.Print()
+	q.Clear()
 }

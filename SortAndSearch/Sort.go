@@ -26,6 +26,8 @@ func insSort(arr []int) {
 	}
 }
 
+//===========================================================
+
 //Merge sort
 func merge(left, right []int) []int {
 	arraySize := len(left) + len(right)
@@ -70,6 +72,8 @@ func mergeWrapper(arr []int) {
 	copy(arr, sorted)
 }
 
+//===========================================================
+
 // Quick sort
 func partition(arr []int, low, high int) int {
 	pivotIndex := arr[high]
@@ -95,6 +99,8 @@ func quickSort(arr []int, low, high int) {
 func quickSortWrapper(arr []int) {
 	quickSort(arr, 0, len(arr)-1)
 }
+
+//===========================================================
 
 // Counting sort
 func countingSort(arr []int) {
@@ -124,5 +130,3 @@ func countingSort(arr []int) {
 
 	copy(arr, output)
 }
-
-//Radix sort
