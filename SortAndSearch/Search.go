@@ -10,15 +10,15 @@ func linearSearch(arr []int, t int) int {
 }
 
 func binarySearch(arr []int, t int) int {
-	l, r := 0, len(arr)-1
-	for l <= r {
-		m := (r + l) / 2
-		if arr[m] == t {
-			return m
-		} else if arr[m] < t {
-			l = m + 1
+	left, right := 0, len(arr)-1
+	for left <= right {
+		mid := (right + left) / 2
+		if arr[mid] == t {
+			return mid
+		} else if arr[mid] < t {
+			left = mid + 1
 		} else {
-			r = m - 1
+			right = mid - 1
 		}
 	}
 	return -1
